@@ -6,7 +6,7 @@ const { StatusCodes } = require("http-status-codes");
 const signup = async (req, res, next) => {
   try {
     const { username, email, password, no_telp } = req.body;
-
+    //check
     const data = await UserModel.findOne({ username: username });
 
     if (data) {
@@ -20,6 +20,7 @@ const signup = async (req, res, next) => {
       no_telp: no_telp,
     });
 
+    // console.log(newUser);
     await newUser.save();
     delete newUser._doc.password;
     res.status(StatusCodes.CREATED).json({ data: newUser });

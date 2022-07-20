@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const dotenv = require("dotenv").config();
 const bodyParser = require('body-parser')
 const UsersRouter = require('./app/api/Users/router');
+const TodosRouter = require('./app/api/Todos/router')
 const cors = require('cors');
 
 app.use(cors());
@@ -24,6 +25,7 @@ app.use(express.json());
 
 
 app.use(`${apiRoutes}/users`, UsersRouter );
+app.use(`${apiRoutes}/todos`, TodosRouter );
 
 app.listen (port, () => {
     console.log(`Example app listening on port ${port}`)
