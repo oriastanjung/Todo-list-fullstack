@@ -1,0 +1,24 @@
+.btn{
+    background-color: #F8CE6F;
+    border: none;
+    width: 180;
+    height: 40;
+    padding: 10px 15px 10px 15px;
+    border-radius: 30px;
+    color: #FFFFFF;
+}
+.btn-lg{
+    width: 250;
+    height: 60;
+    padding: 15px 20px 15px 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.btn-md {
+    width: 210;
+    height: 50;
+    padding: 13px 18px 13px 18px;
+    font-size: 18px;
+    font-weight: 300;
+}

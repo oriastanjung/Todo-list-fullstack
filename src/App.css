@@ -1,38 +1,101 @@
-.App {
-  text-align: center;
+*{
+  font-family: 'Poppins', sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  margin: 0 10%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
+}
+.header {
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ECF5F2;
+  padding: 5px 5rem 5px 5rem;
+  font-size: 24px;
+  color: #2E3138;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-main {
+  display: flex;
+  flex-direction: flex-end;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 70%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.card {
+  background-color: #ECF5F2;
+  width: 75%;
+  padding: 1rem;
+  border-radius: 25px;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.card-info h4{
+  font-size: 26px;
+  font-weight: 400;
+  color: #2E3138;
+  margin: 0;
+  margin-bottom: 0.75rem;
+}
+
+.card-info .card-desc{
+  font-size: 22px;
+  color: #5B616F;
+  font-weight: 300;
+  margin: 0;  
+  margin-bottom: 0.75rem;
+  width: 70%;
+}
+
+.card-info p{
+  font-size: 23px;
+  color: #2E3138;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 0.75rem;
+}
+.icons-card{
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.icons-card .icon {
+  background-color: #F8CE6F;
+  padding: 0.5rem;
+  border-radius: 15px;
+}
+.icons-card .icon img{
+  filter: brightness(0) invert(1);
+  width: 35px;
+  height: 35px;
+}
+.modal {
+  position: fixed;
+  top: 20vh;
+  /* left: 5%; */
+  width: 90%;
+  background-color: #ECF5F2;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 40rem;
+    left: calc(50% - 20rem);
   }
 }

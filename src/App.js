@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
 
+import "./App.css";
+import Layout from "./components/Layout";
+import Button from "./components/Button";
+import Card from "./components/Card";
 function App() {
+  const [clickButton, setClickButton] = useState(false);
+  const onClickedButtonHandler = () => {
+    setClickButton(true);
+  }
+  const onCloseModalHandler = () => {
+    setClickButton(false)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <Layout onCloseModal={onCloseModalHandler} showModal={clickButton} onClickButton={onClickedButtonHandler} className="container">
+      <span className="btn-main"><Button isMed>+ New Todo</Button></span>
+  
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+   </Layout>
   );
 }
 
