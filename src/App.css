@@ -1,6 +1,22 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
+
+textarea{
+  resize: none;
+}
+
+.title {
+  color: #2E3138;
+  cursor:default;
+  text-decoration: none;
+}
+
+.title a{
+  color: #2E3138;
+  cursor:default;
+  text-decoration: none;
+}
 .container {
   margin: 0 10%;
   display: flex;
@@ -82,7 +98,7 @@
 }
 .modal {
   position: fixed;
-  top: 20vh;
+  top: 10vh;
   /* left: 5%; */
   width: 90%;
   background-color: #ECF5F2;
@@ -92,6 +108,81 @@
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
 }
+.input-group {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.input-group label{
+  color: #2E3138;
+  font-size: 24px;
+  font-weight: 400;
+}
+.input-group input {
+  color: #5B616F;
+  font-size: 20px;
+  border: none;
+  padding: 0;
+  padding: 20px;
+  background-color: white;
+  border-radius: 25px;
+  font-weight: 300;
+}
+
+.input-group textarea{
+  border: none;
+  color: #5B616F;
+  border-radius: 20px;
+  padding: 1rem;
+  font-size: 20px;
+}
+
+
+.modal-page {
+  background-color: #ECF5F2;
+  padding: 4rem;
+  border-radius: 20px;
+}
+
+.modal-page h5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+  margin-top: -5%;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 5%;
+}
+
+.modal-action .actions-btn {
+    float: right;
+    margin-top: 1rem;
+}
+.modal-action .actions-btn div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.modal-action .link {
+  float: left;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+
+.modal-action .link a{
+  color: #F8CE6F;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+
 
 @media (min-width: 768px) {
   .modal {
@@ -99,3 +190,4 @@
     left: calc(50% - 20rem);
   }
 }
+

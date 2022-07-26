@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Title(props) {
   return (
-    <h1 className={props.className}>Just Do It !</h1>
-  )
+    <h1 className={'title'}>
+      {" "}
+      <Link to={"/"}>Just Do It!</Link>
+    </h1>
+  );
 }
 
-export default Title
+export default Title;

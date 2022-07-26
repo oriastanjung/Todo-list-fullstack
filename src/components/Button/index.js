@@ -7,6 +7,10 @@ function Button(props) {
     <button
       className={`${style.btn} ${props.isLarge && style["btn-lg"]} ${
         props.isMed && style["btn-md"]
+      } ${
+        props.isModal && style["btn-modal"]
+      } ${
+        props.isModalCancel && style["btn-modal-cancel"]
       }`}
       {...props}
     >

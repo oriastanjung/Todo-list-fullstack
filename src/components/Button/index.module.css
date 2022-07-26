@@ -1,24 +1,46 @@
 .btn{
     background-color: #F8CE6F;
     border: none;
-    width: 180;
-    height: 40;
-    padding: 10px 15px 10px 15px;
+    width: 180px;
+    height: 40px;
+    padding: 6px 9px 6px 9px;
     border-radius: 30px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 .btn-lg{
-    width: 250;
-    height: 60;
-    padding: 15px 20px 15px 20px;
+    width: 250px;
+    height: 60px;
+    padding: 9px 12px 9px 12px;
     font-size: 20px;
     font-weight: 500;
 }
 
 .btn-md {
-    width: 210;
-    height: 50;
-    padding: 13px 18px 13px 18px;
+    width: 210px;
+    height: 50px;
+    padding: 6px 10px 6px 10px;
     font-size: 18px;
     font-weight: 300;
+}
+
+
+.btn-modal {
+    width: 150px;
+    height: 50px;
+    padding: 6px 10px 6px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 15px;
+}
+
+.btn-modal-cancel{
+    color: #5B616F;
+    background-color: white;
+}
+.btn-modal-cancel:hover {
+    background-color: rgb(185, 184, 184) !important; 
+}
+.btn:hover {
+    background-color: #e8c269;
 }
