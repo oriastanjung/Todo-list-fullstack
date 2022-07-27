@@ -40,7 +40,9 @@ textarea{
   font-size: 24px;
   color: #2E3138;
 }
-
+.btn-main span{
+  display: none;
+}
 .btn-main {
   display: flex;
   flex-direction: flex-end;
@@ -202,5 +204,77 @@ textarea{
     width: 40rem;
     left: calc(50% - 20rem);
   }
+  
+}
+@media (max-width: 768px) {
+  .title{
+    width: 90px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 2rem;
+  }
+
+  
+  .header{
+    gap: 1rem;
+  }
+
+  .modal-action{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+
+  .modal{
+    margin-left: 1%;
+  }
+
+  .input-group label{
+    font-size: 16px;
+  }
+  .input-group input{
+    padding: 10px;
+    font-size: 14px;
+  }
+  .input-group textarea{
+    font-size: 14px;
+  }
+  .modal-action .link a{
+    font-size: 16px;
+  }
+
+  .card{
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .card-info h4{
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+
+  .card-info .card-desc{
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+  .card-info p{
+    font-size: 17px;
+  }
+
+  .icons-card{
+    gap: 0.1rem;
+  }
+  .icons-card .icon{
+    padding: 0.1rem;
+  }
+  .icons-card .icon button img{
+    width: 20px;
+    height: 20px;
+  }
+
+  
 }
 

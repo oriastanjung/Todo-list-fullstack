@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import Header from "../Header";
 import Footer from "../Footer";
 import Modal from "../Modal";
@@ -74,7 +73,7 @@ function Layout(props) {
 
       <span className="btn-main">
         <Button onClick={onClickNewTodoHandler} isMed>
-          + New Todo
+          + New
         </Button>
       </span>
 
