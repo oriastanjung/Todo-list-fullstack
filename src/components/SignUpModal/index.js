@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { config } from "../../configs";
 import InputWithLabel from "../InputWithLabel";
 import Button from "../Button";
 import { Link, useNavigate } from "react-router-dom";
@@ -19,10 +22,23 @@ function SignUpModal(props) {
     });
   };
 
-  const LoginHandler = (e) => {
-    console.log(form.username);
+  const LoginHandler = async (e) => {
     e.preventDefault();
-    navigate("/");
+    try {
+      const result = await axios.post(
+        `${config.api_url}/api/users/signup/`,
+        form
+      );
+      
+      navigate(-1)
+
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Check the Form, Invalid Data Input',
+      })
+    }
   };
 
   const closeSignUpModal = async (e) => {

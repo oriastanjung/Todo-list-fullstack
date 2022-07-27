@@ -6,6 +6,12 @@ textarea{
   resize: none;
 }
 
+.not-login{
+  font-size: 40px;
+  margin-top: 5rem;
+  height: 768px;
+}
+
 .title {
   color: #2E3138;
   cursor:default;
@@ -73,6 +79,7 @@ textarea{
 }
 
 .card-info p{
+  text-align: left;
   font-size: 23px;
   color: #2E3138;
   font-weight: 500;
@@ -91,7 +98,13 @@ textarea{
   padding: 0.5rem;
   border-radius: 15px;
 }
-.icons-card .icon img{
+.icons-card .icon button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.icons-card .icon button img{
   filter: brightness(0) invert(1);
   width: 35px;
   height: 35px;

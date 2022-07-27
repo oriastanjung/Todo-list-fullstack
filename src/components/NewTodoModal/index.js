@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
+import {config} from "../../configs";
+import Swal from "sweetalert2";
 import InputWithLabel from "../InputWithLabel";
 import Button from "../Button";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,7 +12,7 @@ function NewTodoModal(props) {
   const [form, setForm] = useState({
     title: "",
     dueTime: "",
-    desc: "",
+    description: "",
   });
 
   const onChangeHandler = (e) => {
@@ -18,10 +21,25 @@ function NewTodoModal(props) {
     });
   };
 
-  const CreateHandler = (e) => {
-    // console.log(form.username);
+  const CreateHandler = async (e) => {
     e.preventDefault();
-    navigate("/");
+    try {
+      const data = await axios.post(`${config.api_url}/api/todos/`, form, {
+        headers : {
+          "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        }
+      })
+      navigate("/");
+      window.location.reload();
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Check the data again!',
+      })
+    }
+    // console.log(form.username);
+    
   };
 
   const closeSignUpModal = async (e) => {
@@ -49,7 +67,7 @@ function NewTodoModal(props) {
           onChange={onChangeHandler}
         />
         <div className="input-group">
-          <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+          <textarea onChange={onChangeHandler} name="description" id="description" cols="30" rows="10" value={form.description}></textarea>
         </div>
       </div>
       <div className="modal-action">

@@ -1,16 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import moment from "moment";
+import { config } from "../../configs";
+import Swal from "sweetalert2";
 import InputWithLabel from "../InputWithLabel";
 import Button from "../Button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function EditTodoModal() {
+  const { id } = useParams();
+
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
     title: "",
     dueTime: "",
-    desc: "",
+    description: "",
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios.get(`${config.api_url}/api/todos/${id}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        const data = result.data.data;
+        const date = moment(data.dueTime).format("YYYY-MM-D");
+        setForm({
+          ...form,
+          title: data.title,
+          dueTime: date,
+          description: data.description,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const onChangeHandler = (e) => {
     setForm((prevState) => {
@@ -18,10 +47,30 @@ function EditTodoModal() {
     });
   };
 
-  const CreateHandler = (e) => {
-    // console.log(form.username);
+  const onEditHandler = async (e) => {
     e.preventDefault();
-    navigate("/");
+    try {
+      const result = await axios.put(
+        `${config.api_url}/api/todos/${id}`,
+        form,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      navigate("/");
+      Swal.fire("Success!", "You Edit The Todo!", "success");
+      setTimeout(() => {
+        window.location.reload();
+      },2000)
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Check the Data Again!",
+      });
+    }
   };
 
   const closeSignUpModal = async (e) => {
@@ -49,7 +98,14 @@ function EditTodoModal() {
           onChange={onChangeHandler}
         />
         <div className="input-group">
-          <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+          <textarea
+            onChange={onChangeHandler}
+            name="description"
+            id="description"
+            cols="30"
+            rows="10"
+            value={form.description}
+          ></textarea>
         </div>
       </div>
       <div className="modal-action">
@@ -58,7 +114,7 @@ function EditTodoModal() {
             <Button onClick={closeSignUpModal} isModal isModalCancel>
               Cancel
             </Button>
-            <Button type={"submit"} onClick={CreateHandler} isModal>
+            <Button type={"submit"} onClick={onEditHandler} isModal>
               Edit Todo
             </Button>
           </div>
