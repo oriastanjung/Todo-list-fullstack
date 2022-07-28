@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
+const dotenv = require("dotenv").config();
+
+
 const port = process.env.PORT
 const mongoose = require('mongoose');
-const dotenv = require("dotenv").config();
+
 const bodyParser = require('body-parser')
 const UsersRouter = require('./app/api/Users/router');
 const TodosRouter = require('./app/api/Todos/router')
