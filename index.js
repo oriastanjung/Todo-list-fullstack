@@ -6,13 +6,13 @@ const dotenv = require("dotenv").config();
 const port = process.env.PORT
 const mongoose = require('mongoose');
 
-const bodyParser = require('body-parser')
+//const bodyParser = require('body-parser')
 const UsersRouter = require('./app/api/Users/router');
 const TodosRouter = require('./app/api/Todos/router')
 const cors = require('cors');
 
 app.use(cors());
-app.use(bodyParser);
+//app.use(bodyParser);
 app.use(express.json());
 
 
