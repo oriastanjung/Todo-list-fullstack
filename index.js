@@ -34,3 +34,6 @@ app.use(`${apiRoutes}/todos`, TodosRouter );
 app.listen (port, () => {
     console.log(`Example app listening on port ${port}`)
 })
+
+
+console.log("Database_URL:", process.env.MONGODB_URL_DEV);
