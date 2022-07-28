@@ -9,6 +9,10 @@ const TodosRouter = require('./app/api/Todos/router')
 const cors = require('cors');
 
 app.use(cors());
+app.use(bodyParser);
+app.use(express.json());
+
+
 main().catch(err => console.log(err));
 
 async function main() {
@@ -20,9 +24,6 @@ app.get('/', (req,res) => {
 })
 
 const apiRoutes = '/api';
-// app.use(bodyParser);
-app.use(express.json());
-
 
 app.use(`${apiRoutes}/users`, UsersRouter );
 app.use(`${apiRoutes}/todos`, TodosRouter );
