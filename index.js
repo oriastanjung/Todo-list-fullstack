@@ -31,8 +31,8 @@ const apiRoutes = '/api';
 app.use(`${apiRoutes}/users`, UsersRouter );
 app.use(`${apiRoutes}/todos`, TodosRouter );
 
-app.listen (port, () => {
-    console.log(`Example app listening on port ${port}`)
+app.listen (process.env.PORT || 4000, () => {
+    console.log(`Example app listening on port ${process.env.PORT || 4000}`)
 })
 
 
